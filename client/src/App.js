@@ -6,13 +6,14 @@ import { QRCodeCanvas } from "qrcode.react";
 const API_URL = process.env.REACT_APP_API_URL;
 
 const upiId = "7989876452@ybl"; 
-const upiLink = `upi://pay?pa=${upiId}&pn=TheTenaliStarbucks&am=${total}&cu=INR&tn=CoffeeOrder`;
 
 function App() {
   const [items, setItems] = useState([]);
   const [cart, setCart] = useState([]);
   const [search, setSearch] = useState('');
   const [showReceipt, setShowReceipt] = useState(false);
+  const total = cart.reduce((sum, item) => sum + item.price * item.qty, 0);
+  const upiLink = `upi://pay?pa=${upiId}&pn=TheTenaliStarbucks&am=${total}&cu=INR&tn=CoffeeOrder`;
 
   useEffect(() => {
     axios.get(`${API_URL}/items`)
@@ -131,7 +132,12 @@ function App() {
         ))}
 
         <h3>Total: ₹{total}</h3>
-        <button onClick={placeOrder}>Checkout</button>
+        {cart.length > 0 && (
+          <>
+            <QRCodeCanvas value={upiLink} size={180} />
+            <button onClick={placeOrder}>Checkout</button>
+          </>
+        )}
       </div>
 
       {/* RECEIPT POPUP */}
