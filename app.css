@@ -1,0 +1,28 @@
+.container {
+  font-family: Arial;
+  padding: 20px;
+}
+
+.menu {
+  display: flex;
+  gap: 15px;
+}
+
+.card {
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 8px;
+  width: 150px;
+}
+
+button {
+  background: brown;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.cart {
+  margin-top: 30px;
+}

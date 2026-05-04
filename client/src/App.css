@@ -1,0 +1,157 @@
+:root {
+  --bg-color: #f7f5f2;
+  --text-primary: #6b3e26;
+  --text-secondary: #1e3932;
+  --card-bg: white;
+  --input-bg: white;
+  --input-border: #ccc;
+  --input-text: #000;
+  --card-shadow: rgba(0,0,0,0.08);
+  --btn-bg: #00754a;
+  --btn-text: white;
+  --btn-remove-bg: red;
+  --cart-shadow: rgba(0,0,0,0.1);
+  --receipt-shadow: rgba(0,0,0,0.3);
+  --text-body: #000;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-color: #1a1a1a;
+    --text-primary: #d4a373;
+    --text-secondary: #fefae0;
+    --card-bg: #2d2d2d;
+    --input-bg: #333;
+    --input-border: #555;
+    --input-text: #fff;
+    --card-shadow: rgba(0,0,0,0.4);
+    --btn-bg: #00a86b;
+    --btn-text: #fff;
+    --btn-remove-bg: #e63946;
+    --cart-shadow: rgba(0,0,0,0.4);
+    --receipt-shadow: rgba(0,0,0,0.6);
+    --text-body: #f1f1f1;
+  }
+}
+
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: var(--bg-color);
+  color: var(--text-body);
+}
+
+.container {
+  padding: 20px;
+  text-align: center;
+}
+
+h1 {
+  color: var(--text-primary);
+  font-size: 42px;
+  margin-bottom: 20px;
+}
+
+.search {
+  padding: 12px;
+  width: 280px;
+  border-radius: 25px;
+  border: 1px solid var(--input-border);
+  background: var(--input-bg);
+  color: var(--input-text);
+  margin-bottom: 30px;
+}
+
+/* MENU GRID */
+.menu {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 25px;
+  padding: 20px;
+}
+
+/* CARD */
+.card {
+  background: var(--card-bg);
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px var(--card-shadow);
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+}
+
+.card img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+}
+
+.card h3 {
+  margin: 10px 0;
+  color: var(--text-secondary);
+}
+
+.card button {
+  background: var(--btn-bg);
+  color: var(--btn-text);
+  border: none;
+  padding: 8px 16px;
+  margin: 10px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+/* CART */
+.cart {
+  margin-top: 40px;
+  background: var(--card-bg);
+  padding: 20px;
+  border-radius: 15px;
+  width: 320px;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 0 5px 15px var(--cart-shadow);
+}
+
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px 0;
+}
+
+.controls {
+  display: flex;
+  gap: 5px;
+}
+
+.controls button {
+  padding: 4px 8px;
+  background: var(--btn-bg);
+  color: var(--btn-text);
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+.remove {
+  background: var(--btn-remove-bg) !important;
+  color: white !important;
+}
+
+/* RECEIPT */
+.receipt {
+  position: fixed;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -20%);
+  background: var(--card-bg);
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px var(--receipt-shadow);
+  z-index: 1000;
+  width: 300px;
+}
