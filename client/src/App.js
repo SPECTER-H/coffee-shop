@@ -152,7 +152,7 @@ function App() {
     <h3>Total: ₹{total}</h3>
 
     {/* 🔥 QR CODE */}
-    <QRCode value={upiLink} size={200} />
+    <QRCodeCanvas value={upiLink} size={180} />
 
     <p>Scan & Pay</p>
 
