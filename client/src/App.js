@@ -51,8 +51,6 @@ function App() {
     setCart(cart.filter(item => item._id !== id));
   };
 
-  const total = cart.reduce((sum, i) => sum + i.price * i.qty, 0);
-
   const placeOrder = async () => {
     await axios.post(`${API_URL}/order`, { items: cart, total });
     setShowReceipt(true);
